@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Query, Path
+from fastapi import Body, FastAPI, Query, Path
 from hereos import  HEROES
+from utils import find_proper_hero_id
 
 # initialisation de l'application 
 app=FastAPI()
@@ -40,3 +41,11 @@ async def get_hero_by_nick_name(hero_nick_name:str = Path()):
     for hero in HEROES:
         if hero.get("nick_name").casefold() == hero_nick_name.lower().casefold():
             return hero
+
+
+# Requetes de creation de hero
+@app.post("/hero/create")
+async def create_hero(hero_body = Body()):
+    """creer un hero"""
+    find_proper_hero_id(hero_body)
+    HEROES.append(hero_body)
