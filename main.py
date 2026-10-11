@@ -49,3 +49,20 @@ async def create_hero(hero_body = Body()):
     """creer un hero"""
     find_proper_hero_id(hero_body)
     HEROES.append(hero_body)
+
+
+@app.put("/hero/update")
+async def update_hero(hero_body=Body()): 
+    """mettre a jour un hero """
+    for i in range(len(HEROES)):
+        if HEROES[i].get("id") == hero_body.get("id"):
+            HEROES[i] = hero_body
+
+
+@app.delete("/hero/delete/{hero_id}")
+async def delete_hero(hero_id:int = Path()):
+    """supprimer un hero"""
+    for i in range(len(HEROES)):
+        if HEROES[i].get("id") == hero_id:
+            HEROES.pop(i)
+            break
