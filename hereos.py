@@ -6,6 +6,7 @@ from classes import Hero
 HEROES : List[Hero] = [
   Hero(
     id=1,
+    name="Drizzt Do'Urden",
     nick_name="Drizzt",
     full_name="Drizzt Do'Urden",
     occupation=["Ranger", "Adventurer"],
@@ -16,6 +17,7 @@ HEROES : List[Hero] = [
   ),
   Hero(
     id=2,
+    name="Gandalf",
     nick_name="Gandalf",
     full_name="Gandalf the Grey",
     occupation=["Wizard", "Advisor"],   
@@ -26,6 +28,7 @@ HEROES : List[Hero] = [
   ),
   Hero(
     id=3,
+    name="Aragorn",
     nick_name="Aragorn",
     full_name="Aragorn II Elessar",
     occupation=["Ranger", "King"],
@@ -36,6 +39,7 @@ HEROES : List[Hero] = [
   ),
   Hero(
     id=4,
+    name="Legolas",
     nick_name="Legolas",
     full_name="Legolas Greenleaf",
     occupation=["Archer", "Prince of the Woodland Realm"],
@@ -46,6 +50,7 @@ HEROES : List[Hero] = [
   ),
   Hero(
     id=5,
+    name="Frodo Baggins",
     nick_name="Frodo",
     full_name="Frodo Baggins",
     occupation=["Ring-bearer", "Adventurer"],
