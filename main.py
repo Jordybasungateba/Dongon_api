@@ -3,14 +3,21 @@ from classes import Hero, HeroValidation
 from hereos import  HEROES
 from utils import find_proper_hero_id
 from starlette import status
+from database import DbDependency
+from sqlalchemy import text
 
 # initialisation de l'application 
 app=FastAPI()
 
-@app.get("/")
-async def  heartbeat():
+@app.get("/", status_code=status.HTTP_200_OK)
+async def  heartbeat(db: DbDependency):
     """test de disponibilité de l'application"""
-    return "app running"
+    try:
+        # test de la connexion à la base de données
+        db.execute(text("SELECT 1"))
+        return {"message": "Application is running and database connection is successful."}
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
 
 @app.get("/heroes")
 async def get_heroes():
