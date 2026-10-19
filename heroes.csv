@@ -1,0 +1,6 @@
+id,name,nick_name,full_name,occupation,powers,hobby,type,rank
+1,Drizzt Do'Urden,Drizzt,Drizzt Do'Urden,"{""Ranger"",""Adventurer""}","{""Two-weapon fighting"",""Darkvision"",""Exceptional agility""}","{""Reading"",""Exploring""}",Ranger,95
+2,Gandalf,Gandalf,Gandalf the Grey,"{""Wizard"",""Advisor""}","{""Magic spells"",""Wisdom"",""Leadership""}","{""Studying ancient texts"",""Guiding others""}",Wizard,98
+3,Aragorn,Aragorn,Aragorn II Elessar,"{""Ranger"",""King""}","{""Swordsmanship"",""Tracking"",""Leadership""}","{""Hunting"",""Exploring Middle-earth""}",Ranger,97
+4,Legolas,Legolas,Legolas Greenleaf,"{""Archer"",""Prince of the Woodland Realm""}","{""Archery"",""Keen eyesight"",""Agility""}","{""Exploring forests"",""Practicing archery""}",Archer,96
+5,Frodo Baggins,Frodo,Frodo Baggins,"{""Ring-bearer"",""Adventurer""}","{""Courage"",""Stealth"",""Resilience""}","{""Gardening"",""Exploring the Shire""}",Hobbit,90
