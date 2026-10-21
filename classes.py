@@ -1,6 +1,6 @@
-from typing import Annotated, List, Optional
+from typing import Annotated, List, Literal, Optional
 
-from pydantic import BaseModel, Field, StringConstraints, constr
+from pydantic import BaseModel, Field, StringConstraints, constr, field_validator
 
 
 class Hero: 
@@ -51,3 +51,43 @@ class HeroValidation(BaseModel):
             }
         }
     }
+
+
+# ---------------------------------------- Player Validation ----------------------------------------
+
+AllowedRoles = Literal["Controler", "defener", "striker", "leader"]
+
+class PlayerValidation(BaseModel):
+    """Classe représentant un joueur avec validation des champs"""
+    username: str = Field(min_length=4, description="Le nom d'utilisateur doit contenir au moins 4 caractères")
+    first_name: str = Field(min_length=4, description="Le prénom doit contenir au moins 4 caractères")
+    last_name: str = Field(min_length=4, description="Le nom de famille doit contenir au moins 4 caractères")
+    email: str = Field(min_length=4, description="L'adresse email doit contenir au moins 4 caractères")
+    password: str = Field(min_length=8, description="Le mot de passe doit contenir au moins 8 caractères")
+    role: AllowedRoles = Field(min_length=4, description="Le rôle doit contenir au moins 4 caractères")
+
+    @field_validator("role", mode="before")
+    def validate_role(cls, value):
+        """Valide le rôle du joueur"""
+        if value not in ["Controler", "defener", "striker", "leader"]:
+            raise ValueError("Le rôle doit être l'un des suivants : Controler, defener, striker, leader")
+        return value
+
+    model_config = {
+        "json_schema_extra": {
+            "example": {
+                "username": "player1",
+                "first_name": "John",
+                "last_name": "Does",
+                "email": "player@exemple.com",
+                "password": "password123",
+                "role": "Controler"
+            }
+        }}
+
+
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
